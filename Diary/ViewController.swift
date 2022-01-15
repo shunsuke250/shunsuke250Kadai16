@@ -6,23 +6,15 @@
 //
 
 import UIKit
-import CoreData
 
 struct Diarycontent {
     let diary: String
     let day: Int
     let date: String
-    let year: String
 }
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    // reference to managed object context
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    // Data for the table
-    var items:[DiaryItem]?
     
     // 行を追加した時の通知に必要
     @IBOutlet weak var tableView: UITableView!
@@ -30,39 +22,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var diaryContent = [[Diarycontent]]()
     
     var sections = [Date]()
+    var userDefaults = UserDefaults.standard
+    
     
     // 編集画面(EditViewController)に値を渡すための変数
     var diaryContentText = String()
     var diaryContentDay = String()
-    
+
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tableView.dataSource = self
-        tableView.delegate = self
         // 値がないセルを非表示
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor(hex: "eaf8fe")
-        // CoreDataからデータを取得
-        fetchDiaryItem()
-    }
-    
-    func fetchDiaryItem() {
-        
-        // CoreDataからデータをfetchしてtableviewに表示
-        do{
-            self.items = try context.fetch(DiaryItem.fetchRequest())
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        catch {
-            
-        }
         
     }
     
@@ -88,15 +63,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得する(cellIDの取得）
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        
-
         // セルに表示する値を設定する
         let textLabel = cell.contentView.viewWithTag(1) as! UILabel
-        
-//        let DiaryItem = self.items![indexPath.row]
-//        textLabel.text = DiaryItem.diaryContent
-        
         
         textLabel.text = diaryContent[indexPath.section][indexPath.row].diary
         let dayLabel = cell.contentView.viewWithTag(2) as! UILabel
@@ -133,15 +101,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let index = sections.indices.sorted{ sections[$0] > sections[$1]}
                     
                     sections = index.map{ sections[$0] }
+                   
+                    print(sections)
                     let sectionNumber = sections.firstIndex(of: addItemVC.yearmonth)!
+                    
+                    print(sectionNumber)
                     diaryContent = index.map{ diaryContent[$0]}
-                    diaryContent[sectionNumber].append(Diarycontent(diary: addItemVC.textView.text, day: addItemVC.day, date: addItemVC.date, year: addItemVC.year))
+                    diaryContent[sectionNumber].append(Diarycontent(diary: addItemVC.textView.text, day: addItemVC.day, date: addItemVC.date))
+                    
                     
                 }else{
                     
                     let sectionNumber = sections.firstIndex(of: addItemVC.yearmonth)!
-                    
-                    diaryContent[sectionNumber].append(Diarycontent(diary: addItemVC.textView.text, day: addItemVC.day, date: addItemVC.date, year: addItemVC.year))
+                 
+                    diaryContent[sectionNumber].append(Diarycontent(diary: addItemVC.textView.text, day: addItemVC.day, date: addItemVC.date))
                     let index = diaryContent[sectionNumber].indices.sorted{diaryContent[sectionNumber][$0].day > diaryContent[sectionNumber][$1].day}
                     for i in 0 ..< diaryContent[sectionNumber].count{
                         print(diaryContent[sectionNumber][i].day)
@@ -157,17 +130,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
+    
+    
+
+   
+    
     // セルがタップされた時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セルの選択を解除
         tableView.deselectRow(at: indexPath, animated: true)
         print("\(indexPath.row)番目の行が選択されました")
-        // 日記の内容をEditVeiwControllerに渡す変数
         diaryContentText = diaryContent[indexPath.section][indexPath.row].diary
-        // 日記の日付をEditVeiwControllerに渡す変数(要修正！！！！今は無理矢理にしてる）
-        diaryContentDay = String(diaryContent[indexPath.section][indexPath.row].year)+"年"+String(diaryContent[indexPath.section][indexPath.row].day)+"日 "+diaryContent[indexPath.section][indexPath.row].date
-        
-        
+        diaryContentDay = String(diaryContent[indexPath.section][indexPath.row].day)+"日 "+diaryContent[indexPath.section][indexPath.row].date
         
         // 画面遷移
         performSegue(withIdentifier: "EditView", sender: self)
@@ -178,21 +152,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let destination = segue.destination as! EditViewController
             destination.contentText = diaryContentText
             destination.dayLabel = diaryContentDay
-            //            destination.dayLabel =
         }
     }
-    
+
     // 内容未入力時のエラー処理
     func contentErrAlert() {
         let alert: UIAlertController = UIAlertController(title: "内容を入力してください", message: "", preferredStyle:  UIAlertController.Style.alert)
-        present(alert, animated: true, completion: nil)
+                present(alert, animated: true, completion: nil)
     }
     
     
     // 日記を削除する処理
     @IBAction func deleteTableViewCell(segue: UIStoryboardSegue) {
-        
+
     }
+    
     
     
 }
