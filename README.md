@@ -1,6 +1,16 @@
 # App
 iPhone13で動作確認をしています。その他機種では確認を行っていないため、オートレイアウトの表示が崩れる場合があります。
 
+<img width="564" alt="スクリーンショット 2022-01-19 9 31 55" src="https://user-images.githubusercontent.com/92722651/150041043-0c148645-f5e4-4400-9356-ea22cae815c4.png">
+
+<img width="564" alt="スクリーンショット 2022-01-19 9 31 36" src="https://user-images.githubusercontent.com/92722651/150041054-67f1b472-3bb7-4020-9499-701798a1d545.png">
+
+<img width="564" alt="スクリーンショット 2022-01-19 9 30 25" src="https://user-images.githubusercontent.com/92722651/150041062-4b1b0ee5-2383-4bf6-8abb-09545b402b21.png">
+
+<img width="564" alt="スクリーンショット 2022-01-19 9 32 33" src="https://user-images.githubusercontent.com/92722651/150041069-0d78d3c1-47ae-4bca-87a2-4c5a77733258.png">
+
+<img width="564" alt="スクリーンショット 2022-01-19 9 32 46" src="https://user-images.githubusercontent.com/92722651/150041072-2442daab-bcf0-45de-b8dc-c99a04f3b5a4.png">
+
 実装予定・実装したい処理を以下に示す。
 
 （1）日記の内容を保存する機能
