@@ -15,7 +15,7 @@ iPhone13で動作確認をしています。その他機種では確認を行っ
 
 ④複数日記を追加した後の一覧画面（日付順で並び、土・日は色付けされる）
 
-<img width="564" alt="スクリーンショット 2022-01-19 9 32 33" src="https://user-images.githubusercontent.com/92722651/150041069-0d78d3c1-47ae-4bca-87a2-4c5a77733258.png">
+<img width="564" alt="スクリーンショット 2022-01-19 9 44 38" src="https://user-images.githubusercontent.com/92722651/150042230-f7b448e8-aac1-4235-88d0-e5d355066a9c.png">
 
 ⑤追加された日記をタップして遷移する編集画面
 
