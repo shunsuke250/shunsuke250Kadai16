@@ -1,6 +1,8 @@
 # App
 iPhone13で動作確認をしています。その他機種では確認を行っていないため、オートレイアウトの表示が崩れる場合があります。
 
+# ScreenShots
+
 ①アプリ起動時の初期画面
 
 <img width="564" alt="スクリーンショット 2022-01-19 9 30 25" src="https://user-images.githubusercontent.com/92722651/150041062-4b1b0ee5-2383-4bf6-8abb-09545b402b21.png">
@@ -21,7 +23,7 @@ iPhone13で動作確認をしています。その他機種では確認を行っ
 
 <img width="564" alt="スクリーンショット 2022-01-19 9 32 46" src="https://user-images.githubusercontent.com/92722651/150041072-2442daab-bcf0-45de-b8dc-c99a04f3b5a4.png">
 
-実装予定・実装したい処理を以下に示す。
+# 実装予定・実装したい処理
 
 （1）日記の内容を保存する機能
 
