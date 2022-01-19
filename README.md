@@ -2,14 +2,23 @@
 iPhone13で動作確認をしています。その他機種では確認を行っていないため、オートレイアウトの表示が崩れる場合があります。
 
 ①アプリ起動時の初期画面
+
 <img width="564" alt="スクリーンショット 2022-01-19 9 30 25" src="https://user-images.githubusercontent.com/92722651/150041062-4b1b0ee5-2383-4bf6-8abb-09545b402b21.png">
+
 ②「+」ボタンをタップして遷移する日記を追加する画面
+
 <img width="564" alt="スクリーンショット 2022-01-19 9 31 36" src="https://user-images.githubusercontent.com/92722651/150041054-67f1b472-3bb7-4020-9499-701798a1d545.png">
+
 ③「保存ボタン」をタップした後の日記一覧画面
+
 <img width="564" alt="スクリーンショット 2022-01-19 9 31 55" src="https://user-images.githubusercontent.com/92722651/150041043-0c148645-f5e4-4400-9356-ea22cae815c4.png">
+
 ④複数日記を追加した後の一覧画面（日付順で並び、土・日は色付けされる）
+
 <img width="564" alt="スクリーンショット 2022-01-19 9 32 33" src="https://user-images.githubusercontent.com/92722651/150041069-0d78d3c1-47ae-4bca-87a2-4c5a77733258.png">
+
 ⑤追加された日記をタップして遷移する編集画面
+
 <img width="564" alt="スクリーンショット 2022-01-19 9 32 46" src="https://user-images.githubusercontent.com/92722651/150041072-2442daab-bcf0-45de-b8dc-c99a04f3b5a4.png">
 
 実装予定・実装したい処理を以下に示す。
