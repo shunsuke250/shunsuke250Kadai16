@@ -26,14 +26,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // 行を追加した時の通知に必要
     @IBOutlet weak var tableView: UITableView!
-    var addView = addViewController()
-    var diaryContent = [[Diarycontent]]()
     
+    // インスタンスを生成
+    let addView = AddViewController()
+    var diaryContent = [[Diarycontent]]()
     var sections = [Date]()
     
     // 編集画面(EditViewController)に値を渡すための変数
-    var diaryContentText = String()
-    var diaryContentDay = String()
+    var diaryContentText = ""
+    var diaryContentDay = ""
     
     
     
@@ -48,6 +49,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.backgroundColor = UIColor(hex: "eaf8fe")
         // CoreDataからデータを取得
         fetchDiaryItem()
+        
+        
     }
     
     func fetchDiaryItem() {
@@ -66,10 +69,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    
+    // section数を指定
     func numberOfSections(in tableView: UITableView) -> Int {
         sections.count
     }
+    // sectionに表示する形式を指定
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return DateUtils.stringFromDate(date: sections[section], format: "yyyy年M月")
     }
@@ -90,14 +94,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         
-
         // セルに表示する値を設定する
         let textLabel = cell.contentView.viewWithTag(1) as! UILabel
-        
-//        let DiaryItem = self.items![indexPath.row]
-//        textLabel.text = DiaryItem.diaryContent
-        
-        
         textLabel.text = diaryContent[indexPath.section][indexPath.row].diary
         let dayLabel = cell.contentView.viewWithTag(2) as! UILabel
         dayLabel.text = String(diaryContent[indexPath.section][indexPath.row].day)
@@ -120,7 +118,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // 保存ボタンが押された時の処理
     @IBAction func returnToMe(segue:UIStoryboardSegue){
         if segue.identifier == "return"{
-            let addItemVC = segue.source as! addViewController
+            
+            let addItemVC = segue.source as! AddViewController
             
             if addItemVC.textView.text == ""{
                 self.contentErrAlert()
@@ -150,10 +149,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 
+                
                 tableView.reloadData()
             }
         }
     }
+    
+    
     
     
     
@@ -169,16 +171,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         
+        
         // 画面遷移
         performSegue(withIdentifier: "EditView", sender: self)
     }
-    //遷移する際の処理
+    // EditViewControllerに遷移する際の処理
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditView" {
             let destination = segue.destination as! EditViewController
             destination.contentText = diaryContentText
             destination.dayLabel = diaryContentDay
-            //            destination.dayLabel =
         }
     }
     
@@ -191,13 +193,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // 日記を削除する処理
     @IBAction func deleteTableViewCell(segue: UIStoryboardSegue) {
-        
+        // 日記内容の更新(2022)
+        let edit = segue.source as! EditViewController
+        diaryContentText = edit.ContentTextView.text
+        print(diaryContentText)
+        tableView.reloadData()
     }
     
     
 }
 
-
+// データの型を変換するクラス
 class DateUtils {
     class func dateFromString(string: String, format: String) -> Date {
         let formatter: DateFormatter = DateFormatter()

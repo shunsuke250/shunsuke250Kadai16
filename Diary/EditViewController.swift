@@ -12,9 +12,9 @@ class EditViewController: UIViewController {
     @IBOutlet weak var EditdayLabel: UILabel!
     @IBOutlet weak var ContentTextView: UITextView!
     @IBOutlet weak var customToolBar: UIToolbar!
-    //ViewControllerから値を受け取る
-    var contentText = String()
-    var dayLabel = String()
+    // ViewControllerから値を受け取る
+    var contentText = ""
+    var dayLabel = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class EditViewController: UIViewController {
     // viewWillはviewが生成される前なので、既にlabel.textが切り替わってるように見える
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 受け取った値を代入
+        // 受け取った日記内容を代入
         ContentTextView.text = contentText
     }
     

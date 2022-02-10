@@ -19,7 +19,7 @@
 		AB8AFFE726D738FE003A4B3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB8AFFE626D738FE003A4B3A /* Assets.xcassets */; };
 		AB8AFFEA26D738FE003A4B3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8AFFE826D738FE003A4B3A /* LaunchScreen.storyboard */; };
 		AB8AFFF426D754FA003A4B3A /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AFFF326D754FA003A4B3A /* ContainerViewController.swift */; };
-		AB8AFFF626D75BA5003A4B3A /* addViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AFFF526D75BA5003A4B3A /* addViewController.swift */; };
+		AB8AFFF626D75BA5003A4B3A /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8AFFF526D75BA5003A4B3A /* AddViewController.swift */; };
 		ABCE8F902701808C0022C3F9 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCE8F8F2701808C0022C3F9 /* EditViewController.swift */; };
 		ABE907EF2766F21100508CFC /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABE907ED2766F21100508CFC /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -39,7 +39,7 @@
 		AB8AFFE926D738FE003A4B3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB8AFFEB26D738FE003A4B3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB8AFFF326D754FA003A4B3A /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		AB8AFFF526D75BA5003A4B3A /* addViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addViewController.swift; sourceTree = "<group>"; };
+		AB8AFFF526D75BA5003A4B3A /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		ABCE8F8F2701808C0022C3F9 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		ABE907EE2766F21100508CFC /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +87,7 @@
 				AB8AFFE326D738FD003A4B3A /* Main.storyboard */,
 				ABCE8F8F2701808C0022C3F9 /* EditViewController.swift */,
 				AB8AFFE126D738FD003A4B3A /* ViewController.swift */,
-				AB8AFFF526D75BA5003A4B3A /* addViewController.swift */,
+				AB8AFFF526D75BA5003A4B3A /* AddViewController.swift */,
 				AB8AFFF326D754FA003A4B3A /* ContainerViewController.swift */,
 				AB2B0F2C26EB7F6400FEEC42 /* DiaryTableViewCell.swift */,
 				AB8AFFE626D738FE003A4B3A /* Assets.xcassets */,
@@ -179,7 +179,7 @@
 				AB4F767327677A1A00EF54E0 /* DiaryItem+CoreDataProperties.swift in Sources */,
 				AB8AFFDE26D738FD003A4B3A /* AppDelegate.swift in Sources */,
 				AB8AFFF426D754FA003A4B3A /* ContainerViewController.swift in Sources */,
-				AB8AFFF626D75BA5003A4B3A /* addViewController.swift in Sources */,
+				AB8AFFF626D75BA5003A4B3A /* AddViewController.swift in Sources */,
 				AB8AFFE026D738FD003A4B3A /* SceneDelegate.swift in Sources */,
 				AB4F767227677A1A00EF54E0 /* DiaryItem+CoreDataClass.swift in Sources */,
 				AB2B0F2D26EB7F6400FEEC42 /* DiaryTableViewCell.swift in Sources */,
