@@ -37,8 +37,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var diaryContentDay = ""
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -49,7 +47,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.backgroundColor = UIColor(hex: "eaf8fe")
         // CoreDataからデータを取得
         fetchDiaryItem()
-        
         
     }
     
@@ -64,9 +61,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         catch {
-            
+            print("データ取得エラー")
         }
-        
     }
     
     // section数を指定
@@ -125,7 +121,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.contentErrAlert()
             }else{
                 
-                if !sections.contains(addItemVC.yearmonth){
+                if sections.contains(addItemVC.yearmonth){
+                    
+                    let sectionNumber = sections.firstIndex(of: addItemVC.yearmonth)!
+                    
+                    diaryContent[sectionNumber].append(Diarycontent(diary: addItemVC.textView.text, day: addItemVC.day, date: addItemVC.date, year: addItemVC.year))
+                    let index = diaryContent[sectionNumber].indices.sorted{diaryContent[sectionNumber][$0].day > diaryContent[sectionNumber][$1].day}
+                    for i in 0 ..< diaryContent[sectionNumber].count{
+                        print(diaryContent[sectionNumber][i].day)
+                    }
+                    diaryContent[sectionNumber] = index.map{ diaryContent[sectionNumber][$0]}
+                    
+                }else{
                     diaryContent.append([])
                     sections.append(addItemVC.yearmonth)
                     
@@ -136,27 +143,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     diaryContent = index.map{ diaryContent[$0]}
                     diaryContent[sectionNumber].append(Diarycontent(diary: addItemVC.textView.text, day: addItemVC.day, date: addItemVC.date, year: addItemVC.year))
                     
-                }else{
-                    
-                    let sectionNumber = sections.firstIndex(of: addItemVC.yearmonth)!
-                    
-                    diaryContent[sectionNumber].append(Diarycontent(diary: addItemVC.textView.text, day: addItemVC.day, date: addItemVC.date, year: addItemVC.year))
-                    let index = diaryContent[sectionNumber].indices.sorted{diaryContent[sectionNumber][$0].day > diaryContent[sectionNumber][$1].day}
-                    for i in 0 ..< diaryContent[sectionNumber].count{
-                        print(diaryContent[sectionNumber][i].day)
-                    }
-                    diaryContent[sectionNumber] = index.map{ diaryContent[sectionNumber][$0]}
                 }
-                
-                
                 
                 tableView.reloadData()
             }
         }
     }
-    
-    
-    
     
     
     // セルがタップされた時の処理
@@ -199,8 +191,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print(diaryContentText)
         tableView.reloadData()
     }
-    
-    
 }
 
 // データの型を変換するクラス

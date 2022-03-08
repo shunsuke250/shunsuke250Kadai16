@@ -19,12 +19,12 @@ class AddViewController: UIViewController {
     
     var d = Date()
     var d1 = Date()
-    var year = String()
-    var day = Int()
-    var month = String()
+    var year = ""
+    var day = 0
+    var month = ""
     var yearmonth = Date()
-    var dc = Int()
-    var date = String()
+    var dc = 0
+    var date = ""
     
     
     override func viewDidLoad() {

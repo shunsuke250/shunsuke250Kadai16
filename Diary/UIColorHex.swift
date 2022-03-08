@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-//UIColorを16進数のカラーコードでカラー指定するための設定
+// UIColorを16進数のカラーコードでカラー指定するための設定
 extension UIColor {
     convenience init(hex: String, alpha: CGFloat = 1.0) {
         let v = Int("000000" + hex, radix: 16) ?? 0
