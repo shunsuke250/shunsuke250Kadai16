@@ -9,7 +9,7 @@ import UIKit
 
 class ContainerViewController: UIViewController {
     
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet private weak var addButton: UIButton!
     
     
     

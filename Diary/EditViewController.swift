@@ -9,9 +9,9 @@ import UIKit
 
 class EditViewController: UIViewController {
     
-    @IBOutlet weak var EditdayLabel: UILabel!
+    @IBOutlet private weak var EditdayLabel: UILabel!
     @IBOutlet weak var ContentTextView: UITextView!
-    @IBOutlet weak var customToolBar: UIToolbar!
+    @IBOutlet private weak var customToolBar: UIToolbar!
     // ViewControllerから値を受け取る
     var contentText = ""
     var dayLabel = ""

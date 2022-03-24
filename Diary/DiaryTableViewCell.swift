@@ -10,9 +10,9 @@ import UIKit
 // TableViewCellに表示する内容を設定するクラス
 class DiaryTableViewCell: UITableViewCell, UITableViewDelegate {
     
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var dayLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var dayLabel: UILabel!
+    @IBOutlet private weak var contentLabel: UILabel!
 
     // cellが更新される時に実行
     override func awakeFromNib() {

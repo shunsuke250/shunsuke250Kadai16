@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var items:[DiaryItem]?
     
     // 行を追加した時の通知に必要
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     // インスタンスを生成
     let addView = AddViewController()

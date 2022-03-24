@@ -11,11 +11,11 @@ import UIKit
 
 class AddViewController: UIViewController {
     
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet private weak var saveButton: UIButton!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var selectDayLabel: UILabel!
-    @IBOutlet weak var navSaveButton: UIBarButtonItem!
+    @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var selectDayLabel: UILabel!
+    @IBOutlet private weak var navSaveButton: UIBarButtonItem!
     
     var d = Date()
     var d1 = Date()
