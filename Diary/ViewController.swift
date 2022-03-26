@@ -18,8 +18,11 @@ struct Diarycontent {
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // reference to managed object context
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//    // reference to managed object context
+//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    // 取得した情報を保持する配列
+    var DiaryCoreData: [NSManagedObject] = []
     
     // Data for the table
     var items:[DiaryItem]?
@@ -52,9 +55,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func fetchDiaryItem() {
         
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DirayItem")
+        
         // CoreDataからデータをfetchしてtableviewに表示
         do{
-            self.items = try context.fetch(DiaryItem.fetchRequest())
+            // 保存した画像情報を取得
+            DiaryCoreData = try managedContext.fetch(fetchRequest)
+//            self.items = try context.fetch(DiaryItem.fetchRequest())
+            
+            // データの読み込み
+            
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
