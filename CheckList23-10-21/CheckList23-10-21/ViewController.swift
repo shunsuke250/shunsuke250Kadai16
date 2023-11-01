@@ -29,6 +29,7 @@ class ViewController: UIViewController {
 
     @IBAction private func addFruit(_ sender: Any) {
         showAddViewControllerForEditing()
+        print("test")
     }
 
     private func reverseImageFlag(index: Int) {
